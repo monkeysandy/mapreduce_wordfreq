@@ -48,7 +48,7 @@ def main(separator='\t'):
         word_count = Counter()
         for word in words:
             word = word.lower()
-            if word not in stop_words:
+            if word not in stop_words and len(word) > 6:
                 word_count[word] += 1
         for word, count in word_count.items():
             print ('%s\t%s' % (word, count))
