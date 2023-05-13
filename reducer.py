@@ -48,11 +48,11 @@ from heapq import nlargest
 #     print('%s\t%s' % (word, count))
 
 
-def read_mapper_output(file, separator='\t'):
+def read_mapper_output(file, separator=' '):
     for line in file:
         yield line.rstrip().split(separator, 1)
 
-def main(separator='\t'):
+def main(separator=' '):
     data = read_mapper_output(sys.stdin, separator=separator)
     count_dict = defaultdict(int)
     for word, count in data:
