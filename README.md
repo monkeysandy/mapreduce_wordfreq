@@ -17,6 +17,7 @@ cat <your_datafile_path> | <mapper.py path> | sort -k1,1 | <reducer.py path>
 hadoop jar $HADOOP_HOME/share/hadoop/tools/lib/hadoop-streaming-3.3.5.jar \
 -file <mapper.py path> -mapper <mapper.py path> \
 -file <reducer.py path> -reducer <reducer.py path> \
+-file <combiner.py path> -combiner <combimer.py path>
 -file <stopword.txt path> -input <hadoop_data_path> -output <hadoop_output>
 ```
 4. check the result
