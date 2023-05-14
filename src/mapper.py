@@ -16,20 +16,16 @@ def read_stopwords(file):
 def main():
     # input comes from STDIN (standard input)
     data = read_input(sys.stdin)
+    # read stopwords from stopword.txt
     stopwords = read_stopwords(open('stopword.txt', 'r'))
+    # put stopwords into a set, which is faster to search
     stop_words = set(stopwords)
     for words in data:
         # write the results to STDOUT (standard output);
         # what we output here will be the input for the
         # Reduce step, i.e. the input for reducer.py
-        # word_count = Counter()
-        # for word in words:
-        #     word = word.lower()
-        #     if word not in stop_words:
-        #         word_count[word] += 1
-        # for word, count in word_count.items():
-        #     print ('%s\t%s' % (word, count))
         for word in words:
+            # convert word to lowercase
             word = word.lower()
             if word not in stop_words:
                 print ('%s %d' % (word, 1))
